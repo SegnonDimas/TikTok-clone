@@ -40,10 +40,14 @@ class _HomeState extends State<Home> {
       
       // FLOATINGACTIONBUTTON
       floatingActionButton: FloatingActionButton(
-        backgroundColor: Colors.black,
+          backgroundColor: Colors.black,
+
+          // fonction onPressed
           onPressed: (){
             print("🎷Go to original sound");
           },
+
+          // child : Widget
           child: CircleAvatar(
             backgroundColor: Colors.white,
             child: Icon(Icons.add, color: Colors.black,),
