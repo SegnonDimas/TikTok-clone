@@ -14,11 +14,11 @@ class _MainPageState extends State<MainPage> {
     return Scaffold(
      // backgroundColor: Colors.black,
 
-        // BottomNavigationBar
+        // NavigationBar
       bottomNavigationBar:
 
-     BottomNavigationBar(
-          currentIndex: _currentIndex,
+     NavigationBar(
+          /*currentIndex: _currentIndex,
           unselectedItemColor: Colors.grey,
           selectedItemColor: Colors.white,
           showUnselectedLabels: true,
@@ -27,21 +27,21 @@ class _MainPageState extends State<MainPage> {
           selectedFontSize: 12,
           unselectedFontSize: 12,
           iconSize: 18,
-
-          // items
-          items: [
+*/
+       selectedIndex: _currentIndex,
+          // destinations
+          destinations: [
            // home
-            BottomNavigationBarItem(
+            NavigationDestination(
               icon: Icon(Icons.home),
               label : "Home" ,
-              backgroundColor: Colors.black,
             ),
 
             // friends
-            BottomNavigationBarItem(
+            NavigationDestination(
               icon: Icon(Icons.people),
               label : "Friends",
-              backgroundColor: Colors.black, ),
+              ),
 
             // create post
             /*BottomNavigationBarItem(icon: Container(
@@ -50,20 +50,20 @@ class _MainPageState extends State<MainPage> {
                 child: Image.asset("lib/add_post.png", )), label : "" , backgroundColor: Colors.black,),
             */
             // inbox
-            BottomNavigationBarItem(
+            NavigationDestination(
               icon: Icon(Icons.wechat),
               label : "Inbox" ,
-              backgroundColor: Colors.black,),
+             ),
 
             // profile
-            BottomNavigationBarItem(
+            NavigationDestination(
               icon: Icon(Icons.person),
               label : "Profile" ,
-              backgroundColor: Colors.black,),
+              ),
           ],
 
-          // onTap
-          onTap: (index){
+          // onDestinationSelected
+          onDestinationSelected: (index){
             _currentIndex=index;
             setState(() {
              });
