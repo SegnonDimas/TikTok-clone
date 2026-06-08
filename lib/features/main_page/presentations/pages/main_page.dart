@@ -12,15 +12,24 @@ class MainPage extends StatefulWidget {
 }
 
 class _MainPageState extends State<MainPage> {
+  // List des pages à afficher dans le body
+  List<Widget> pages = [
+    Home(),
+    Friends(),
+    Inbox(),
+    Profile(),
+  ];
+
+  // index de la page currante
+  int currentIndex = 0;
 
   @override
   Widget build(BuildContext context) {
     return Scaffold(
+      body: pages[currentIndex],
 
         // BottomNavigationBar
-      bottomNavigationBar:
-
-     BottomNavigationBar(
+      bottomNavigationBar: BottomNavigationBar(
           unselectedItemColor: Colors.grey,
           selectedItemColor: Colors.white,
           showUnselectedLabels: true,
@@ -66,7 +75,10 @@ class _MainPageState extends State<MainPage> {
 
           // onTap
           onTap: (index){
+            currentIndex = index;
+            setState(() {}); // pour raffrachir automatiquement l'affichage de l'écran de l'app.
             print("❤️‍🔥index du clique : $index");
+            print("❤️‍🔥currentIndex du clique : $currentIndex");
     },
 
       ),
