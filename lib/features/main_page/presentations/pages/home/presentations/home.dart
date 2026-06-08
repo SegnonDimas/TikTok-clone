@@ -42,36 +42,7 @@ class _HomeState extends State<Home> {
 
       //BODY
       body: Center(
-        child: Text.rich(
-          TextSpan(
-            text: "Google Play ",
-            children: [
-              TextSpan(
-                text: "Console ",
-                style: TextStyle(
-                  color: Colors.blue,
-                ),
-
-              ),
-              TextSpan(
-                text: "Your ",
-                style: TextStyle(
-                  color: Colors.black,
-                ),
-
-              ),
-              TextSpan(
-                text: "Developer Console",
-                style: TextStyle(
-                  color: Colors.red.shade800,
-                  fontWeight: FontWeight.bold
-                ),
-
-              ),
-
-            ]
-          )
-        ),
+        child: SelectableText("I'm Farouk"),
       ),
 
       // FLOATINGACTIONBUTTON
