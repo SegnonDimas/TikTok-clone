@@ -1,4 +1,8 @@
 import 'package:flutter/material.dart';
+import 'package:tiktok/features/main_page/presentations/pages/profile/presentation/pages/profile_page.dart';
+import 'friends/presentations/pages/friends.dart';
+import 'home/presentations/home.dart';
+import 'inbox/presentations/pages/inbox.dart';
 
 class MainPage extends StatefulWidget {
   const MainPage({super.key});
@@ -8,17 +12,15 @@ class MainPage extends StatefulWidget {
 }
 
 class _MainPageState extends State<MainPage> {
-  int _currentIndex = 0;
+
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-     // backgroundColor: Colors.black,
 
-        // NavigationBar
+        // BottomNavigationBar
       bottomNavigationBar:
 
-     NavigationBar(
-          /*currentIndex: _currentIndex,
+     BottomNavigationBar(
           unselectedItemColor: Colors.grey,
           selectedItemColor: Colors.white,
           showUnselectedLabels: true,
@@ -27,21 +29,21 @@ class _MainPageState extends State<MainPage> {
           selectedFontSize: 12,
           unselectedFontSize: 12,
           iconSize: 18,
-*/
-       selectedIndex: _currentIndex,
-          // destinations
-          destinations: [
+
+          // items
+          items: [
            // home
-            NavigationDestination(
+            BottomNavigationBarItem(
               icon: Icon(Icons.home),
               label : "Home" ,
+              backgroundColor: Colors.black,
             ),
 
             // friends
-            NavigationDestination(
+            BottomNavigationBarItem(
               icon: Icon(Icons.people),
               label : "Friends",
-              ),
+              backgroundColor: Colors.black, ),
 
             // create post
             /*BottomNavigationBarItem(icon: Container(
@@ -50,25 +52,21 @@ class _MainPageState extends State<MainPage> {
                 child: Image.asset("lib/add_post.png", )), label : "" , backgroundColor: Colors.black,),
             */
             // inbox
-            NavigationDestination(
+            BottomNavigationBarItem(
               icon: Icon(Icons.wechat),
               label : "Inbox" ,
-             ),
+              backgroundColor: Colors.black,),
 
             // profile
-            NavigationDestination(
+            BottomNavigationBarItem(
               icon: Icon(Icons.person),
               label : "Profile" ,
-              ),
+              backgroundColor: Colors.black,),
           ],
 
-          // onDestinationSelected
-          onDestinationSelected: (index){
-            _currentIndex=index;
-            setState(() {
-             });
+          // onTap
+          onTap: (index){
             print("❤️‍🔥index du clique : $index");
-            print("❤️‍🔥currentIndex : $_currentIndex");
     },
 
       ),

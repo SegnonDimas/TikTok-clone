@@ -1,8 +1,7 @@
 import 'package:flutter/material.dart';
+import 'package:tiktok/features/main_page/presentations/pages/home/presentations/home.dart';
 import 'package:tiktok/features/main_page/presentations/pages/main_page.dart';
-import 'package:tiktok/features/profile/presentation/pages/profile_page.dart';
 
-import 'features/home/presentations/home.dart';
 
 // fonction principale main()
 void main() {
@@ -23,7 +22,7 @@ class MyApp extends StatelessWidget {
       theme: ThemeData(
         colorScheme: .fromSeed(seedColor: Colors.white),
       ),
-      home: MainPage()
+      home: Home()
     );
   }
 }
