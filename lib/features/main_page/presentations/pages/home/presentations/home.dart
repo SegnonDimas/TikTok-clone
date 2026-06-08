@@ -42,24 +42,36 @@ class _HomeState extends State<Home> {
 
       //BODY
       body: Center(
-        child: Container(
-          decoration: BoxDecoration(
-            border: Border.all(color: Colors.black, width: 2)
-          ),
-            height: 200,
-            width: 400,
-            child: Text("Vous avez effectué la première étape de la publication de votre appli sur Google Play pour des milliards d'utilisateurs. Dès maintenant, vous pouvez commencer à effectuer des tests internes. Pour la mettre à disposition de tous, vous devez terminer de la configurer, effectuer un test fermé et demander un accès en production.",
-              //maxLines: 2,
-              maxLines: 3,
-              overflow: TextOverflow.ellipsis,
-              textAlign: TextAlign.justify,
-              style: TextStyle(
-                color: Colors.blue,
-                fontSize: 20,
-                fontWeight: FontWeight.bold,
-                fontStyle: FontStyle.italic
+        child: Text.rich(
+          TextSpan(
+            text: "Google Play ",
+            children: [
+              TextSpan(
+                text: "Console ",
+                style: TextStyle(
+                  color: Colors.blue,
+                ),
+
               ),
-            )),
+              TextSpan(
+                text: "Your ",
+                style: TextStyle(
+                  color: Colors.black,
+                ),
+
+              ),
+              TextSpan(
+                text: "Developer Console",
+                style: TextStyle(
+                  color: Colors.red.shade800,
+                  fontWeight: FontWeight.bold
+                ),
+
+              ),
+
+            ]
+          )
+        ),
       ),
 
       // FLOATINGACTIONBUTTON
