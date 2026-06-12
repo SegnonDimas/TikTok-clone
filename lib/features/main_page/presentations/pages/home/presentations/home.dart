@@ -42,7 +42,78 @@ class _HomeState extends State<Home> {
 
       //BODY
       body: Center(
-        child: SelectableText("I'm Farouk"),
+        child:Column(
+          mainAxisAlignment: MainAxisAlignment.center,
+          children: [
+
+
+            Container(
+              alignment: .topEnd,
+              height: 100,
+              width : 200,
+              decoration: BoxDecoration(
+                color: Colors.red,
+                border: Border.all(color: Colors.black, width: 4,),
+                borderRadius: BorderRadius.circular(20)
+              ),
+              child: Text("Hello, I'm Farouk", style: TextStyle(fontSize: 22),),
+            ),
+
+            Container(
+              alignment: .topEnd,
+              height: 100,
+              width : 200,
+              decoration: BoxDecoration(
+                color: Colors.black,
+                shape: BoxShape.circle,
+                border: Border.all(color: Colors.red, width: 4,),
+              ),
+              ),
+
+            Padding(
+              padding: const EdgeInsets.all(8.0),
+              child: Container(
+                alignment: .center,
+                padding: EdgeInsets.all(20),
+                height: 100,
+                width : 200,
+                decoration: BoxDecoration(
+                  color: Colors.blue,
+                  borderRadius: BorderRadius.only(topLeft: Radius.circular(40), bottomRight: .circular(20))
+                ),
+                child: Container(
+                  alignment: .topEnd,
+                  padding: EdgeInsets.all(20),
+                  height: 90,
+                  width : 190,
+                  decoration: BoxDecoration(
+                    color: Colors.grey,
+                    boxShadow: [
+                      BoxShadow(
+                        color: Colors.black,
+                        offset: Offset(5, -5), // définir le positionnement de l'ombre
+                        blurRadius: 10, // définit la taille de la brouille
+                      )
+                    ]
+                  ),
+                   ),),
+            ),
+
+            Container(
+              alignment: .topEnd,
+              height: 100,
+              width : 200,
+              decoration: BoxDecoration(
+                gradient: LinearGradient(colors: [
+                  Colors.green.shade900,
+                  Colors.green.shade400,
+                  Colors.green.shade50
+                ])
+              ),
+              child: Text("Hello, I'm Farouk", style: TextStyle(fontSize: 22),),
+            ),
+          ],
+        ),
       ),
 
       // FLOATINGACTIONBUTTON
