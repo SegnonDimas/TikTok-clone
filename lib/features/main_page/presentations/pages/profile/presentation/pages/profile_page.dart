@@ -25,6 +25,10 @@ class _ProfileState extends State<Profile> {
         ],*/
       ),
 
+      body: Center(
+        child : Text('Profile')
+      ),
+
       endDrawer: Drawer(
         child: Column(
           crossAxisAlignment: CrossAxisAlignment.start,

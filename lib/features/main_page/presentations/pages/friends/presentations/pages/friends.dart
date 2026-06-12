@@ -12,7 +12,7 @@ class _FriendsState extends State<Friends> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      body: Center(child: Text("Friends"),),
+      body: Center(child: Icon(Icons.people, size: 60,),),
     );
   }
 }

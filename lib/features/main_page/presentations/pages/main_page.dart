@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:tiktok/features/main_page/presentations/pages/create_post/presentations/pages/create_post.dart';
 import 'package:tiktok/features/main_page/presentations/pages/profile/presentation/pages/profile_page.dart';
 import 'friends/presentations/pages/friends.dart';
 import 'home/presentations/home.dart';
@@ -16,6 +17,7 @@ class _MainPageState extends State<MainPage> {
   List<Widget> pages = [
     Home(),
     Friends(),
+    CreatePost(),
     Inbox(),
     Profile(),
   ];
@@ -29,52 +31,54 @@ class _MainPageState extends State<MainPage> {
       body: pages[currentIndex],
 
         // BottomNavigationBar
-      bottomNavigationBar: BottomNavigationBar(
-          unselectedItemColor: Colors.grey,
-          selectedItemColor: Colors.white,
-          showUnselectedLabels: true,
-          unselectedLabelStyle: TextStyle(color: Colors.grey),
-          selectedLabelStyle: TextStyle(color: Colors.white),
-          selectedFontSize: 12,
-          unselectedFontSize: 12,
-          iconSize: 18,
+      bottomNavigationBar: NavigationBar(
+        indicatorColor: Colors.transparent,
+        selectedIndex: currentIndex,
+        labelTextStyle: WidgetStateProperty.all(
+          TextStyle(fontSize: 12, color: Colors.white)
+        ),
+
+        backgroundColor: Colors.black,
 
           // items
-          items: [
+          destinations: [
            // home
-            BottomNavigationBarItem(
+            NavigationDestination(
               icon: Icon(Icons.home),
               label : "Home" ,
-              backgroundColor: Colors.black,
+              selectedIcon: Icon(Icons.home, color: Colors.white),
             ),
 
             // friends
-            BottomNavigationBarItem(
+            NavigationDestination(
               icon: Icon(Icons.people),
-              label : "Friends",
-              backgroundColor: Colors.black, ),
+              label : "Friends" ,
+              selectedIcon: Icon(Icons.people, color: Colors.white),
+            ),
 
             // create post
-            /*BottomNavigationBarItem(icon: Container(
-                color: Colors.white,
+            NavigationDestination(
+              icon: Image.asset("assets/images/add_post.png"),
+              label : "" ,
+            ),
 
-                child: Image.asset("lib/add_post.png", )), label : "" , backgroundColor: Colors.black,),
-            */
             // inbox
-            BottomNavigationBarItem(
+            NavigationDestination(
               icon: Icon(Icons.wechat),
               label : "Inbox" ,
-              backgroundColor: Colors.black,),
+              selectedIcon: Icon(Icons.wechat, color: Colors.white),
+            ),
 
             // profile
-            BottomNavigationBarItem(
+            NavigationDestination(
               icon: Icon(Icons.person),
               label : "Profile" ,
-              backgroundColor: Colors.black,),
+              selectedIcon: Icon(Icons.person, color: Colors.white),
+            ),
           ],
 
           // onTap
-          onTap: (index){
+          onDestinationSelected: (index){
             currentIndex = index;
             setState(() {}); // pour raffrachir automatiquement l'affichage de l'écran de l'app.
             print("❤️‍🔥index du clique : $index");
