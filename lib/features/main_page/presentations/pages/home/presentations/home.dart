@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:lottie/lottie.dart';
 
 // classe Home : page d'accueil de l'application, qui est un widget stateful
 
@@ -27,11 +28,11 @@ class _HomeState extends State<Home> {
         title: Row(
           mainAxisAlignment: MainAxisAlignment.center,
           children: [
-            Text("Explore",  style: TextStyle(fontSize: 20)),
+            Text("Explore",  style: TextStyle(fontSize: 17)),
             SizedBox(width: 10,),
-            Text("Following",  style: TextStyle(fontSize: 20)),
+            Text("Following",  style: TextStyle(fontSize: 17)),
             SizedBox(width: 10,),
-            Text("For you", style: TextStyle(fontSize: 20))
+            Text("For you", style: TextStyle(fontSize: 17))
           ],
         ),
         centerTitle: true,
@@ -42,7 +43,15 @@ class _HomeState extends State<Home> {
 
       //BODY
       body: Center(
-        child:Image.asset("assets/images/tik.png")
+        child:Image.asset("assets/images/tik.png",
+          height: 200,
+          width: 300,
+          fit: BoxFit.contain, // l'image prend soit toute la largeur, soit toute la hauteur
+          //fit: BoxFit.fitHeight, //l'image prend toute la hauteur définie
+          //fit: BoxFit.fitWidth, //l'image prend toute la largeur définie
+          //fit: BoxFit.fill, // l'image prend toute la largeur et la hauteur définies en affichant toute l'image
+          //fit: BoxFit.cover, // l'image prend toute la largeur et la hauteur définies et peut ne pas afficher toute l'image
+        )
       ),
 
       // FLOATINGACTIONBUTTON
@@ -76,7 +85,7 @@ class _HomeState extends State<Home> {
                 width: double.infinity,
                 child: Column(
                   children: [
-                    Text("512 comments")
+                    Lottie.asset("assets/lotties/Welcome.json")
                   ],
                 ),
               );

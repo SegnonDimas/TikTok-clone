@@ -26,7 +26,7 @@ class _ProfileState extends State<Profile> {
       ),
 
       body: Center(
-        child : Text('Profile')
+        child : Image.asset("assets/images/profile.png")
       ),
 
       endDrawer: Drawer(

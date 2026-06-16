@@ -12,7 +12,9 @@ class _InboxState extends State<Inbox> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      body: Center(child: Text("Inbox"),),
+      body: Center(
+        child: Image(
+            image: AssetImage("assets/images/inbox.png")),),
     );
   }
 }
