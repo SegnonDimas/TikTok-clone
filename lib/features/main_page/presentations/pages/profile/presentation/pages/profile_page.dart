@@ -57,20 +57,36 @@ class _ProfileState extends State<Profile> {
               ],
             ),
 
+            SizedBox(height: 50,),
+
             Row(
-              mainAxisAlignment: MainAxisAlignment.spaceAround,
               children: [
-                CircleAvatar(
-                    radius: 50,
-                    backgroundImage: NetworkImage("https://media.gqmagazine.fr/photos/5e301d9bd6a04300082cc271/4:3/w_5120,h_3840,c_limit/P90233585_highRes_the-bmw-m3-e30-09-20.jpg"),),
-                ClipRRect(
-                    borderRadius: BorderRadius.circular(1000),
-                    child: SizedBox(
-                        height: 100,
-                        width: 100,
-                        child: Image.network("https://media.istockphoto.com/id/2176502674/fr/photo/mercedes-benz-amg-gt-2018-voiture-de-sport-vue-dangle.jpg?s=612x612&w=0&k=20&c=hnt7YVzZAnLGWgN4gVTw_ds9tTGNtOL00YviU7ENdKA=",
+                Stack(
+                  children: [
+                    Image.network(
+                        height: 170,
+                        width: 120,
                         fit: BoxFit.cover,
-                        ))),
+                        "https://assets.goal.com/images/v3/blt337ee8504da6e5a0/cm%20grafica%20cristiano%20ronaldo%20messi%202026%2016%209.jpg?auto=webp&format=pjpg&width=3840&quality=60"),
+                    Positioned(
+                      top: 5,
+                      left: 5,
+                      child: Container(
+                          color: Colors.pink,
+                          child: Text("Pinned", style: TextStyle(color: Colors.white),)),
+                    ),
+
+                  Positioned(
+                      bottom: 5,
+                      left: 5,
+                      child: Row(
+                        children: [
+                          Icon(Icons.play_arrow_outlined, color: Colors.white,),
+                          Text("2.1M", style: TextStyle(color: Colors.white, fontWeight: FontWeight.bold),),
+                        ],
+                      ))
+                  ],
+                ),
               ],
             )
             ],
