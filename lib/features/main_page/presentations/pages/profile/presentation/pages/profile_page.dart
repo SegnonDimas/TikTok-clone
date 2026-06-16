@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:lottie/lottie.dart';
 
 class Profile extends StatefulWidget {
   const Profile({super.key});
@@ -26,7 +27,15 @@ class _ProfileState extends State<Profile> {
       ),
 
       body: Center(
-        child : Image.asset("assets/images/profile.png")
+        child: Column(
+          mainAxisAlignment: MainAxisAlignment.spaceBetween,
+          crossAxisAlignment: CrossAxisAlignment.end,
+          children: [
+            Container(height: 100, width: 300, color: Colors.red,),
+            Container(height: 100, width: 220, color: Colors.green,),
+            Container(height: 100, width: 150, color: Colors.blue,),
+          ],
+        ),
       ),
 
       endDrawer: Drawer(
