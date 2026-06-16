@@ -27,13 +27,19 @@ class _ProfileState extends State<Profile> {
       ),
 
       body: Center(
-        child: Column(
-          mainAxisAlignment: MainAxisAlignment.spaceBetween,
+        child: Row(
+          mainAxisAlignment: MainAxisAlignment.spaceAround,
           crossAxisAlignment: CrossAxisAlignment.end,
           children: [
-            Container(height: 100, width: 300, color: Colors.red,),
-            Container(height: 100, width: 220, color: Colors.green,),
-            Container(height: 100, width: 150, color: Colors.blue,),
+            Container(height: 500, width: 10, color: Colors.red,),
+            Container(height: 400, width: 10, color: Colors.green,),
+            Container(height: 300, width: 10, color: Colors.blue,),
+            Container(height: 450, width: 10, color: Colors.red,),
+            Container(height: 100, width: 10, color: Colors.green,),
+            Container(height: 50, width: 10, color: Colors.blue,),
+            Container(height: 600, width: 10, color: Colors.red,),
+            Container(height: 150, width: 10, color: Colors.green,),
+            Container(height: 40, width: 10, color: Colors.blue,),
           ],
         ),
       ),
