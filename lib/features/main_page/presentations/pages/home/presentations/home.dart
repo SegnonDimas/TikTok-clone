@@ -43,14 +43,35 @@ class _HomeState extends State<Home> {
 
       //BODY
       body: Center(
-        child:Image.asset("assets/images/tik.png",
-          height: 200,
-          width: 300,
-          fit: BoxFit.contain, // l'image prend soit toute la largeur, soit toute la hauteur
-          //fit: BoxFit.fitHeight, //l'image prend toute la hauteur définie
-          //fit: BoxFit.fitWidth, //l'image prend toute la largeur définie
-          //fit: BoxFit.fill, // l'image prend toute la largeur et la hauteur définies en affichant toute l'image
-          //fit: BoxFit.cover, // l'image prend toute la largeur et la hauteur définies et peut ne pas afficher toute l'image
+        child:Column(
+          children: [
+            Image.asset("assets/images/tik.png",
+              fit: BoxFit.contain, // l'image prend soit toute la largeur, soit toute la hauteur
+              //fit: BoxFit.fitHeight, //l'image prend toute la hauteur définie
+              //fit: BoxFit.fitWidth, //l'image prend toute la largeur définie
+              //fit: BoxFit.fill, // l'image prend toute la largeur et la hauteur définies en affichant toute l'image
+              //fit: BoxFit.cover, // l'image prend toute la largeur et la hauteur définies et peut ne pas afficher toute l'image
+            ),
+
+            ElevatedButton(
+                onPressed: (){
+                  print("📱Mode plein écran activé");
+                },
+                style: ElevatedButton.styleFrom(
+                  backgroundColor: Colors.black,
+                  foregroundColor: Colors.white,
+
+                ),
+                child: SizedBox(
+                  width: 100,
+                  child: Row(
+                    children: [
+                      Icon(Icons.smartphone),
+                      Text("Full screen"),
+                    ],
+                  ),
+                ))
+          ],
         )
       ),
 

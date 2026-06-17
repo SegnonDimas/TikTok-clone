@@ -1,3 +1,7 @@
+import 'dart:io';
+import 'dart:ui';
+
+import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 
 class Profile extends StatefulWidget {
@@ -10,10 +14,13 @@ class Profile extends StatefulWidget {
 class _ProfileState extends State<Profile> {
   @override
   Widget build(BuildContext context) {
+    bool ios = Platform.isIOS;
     return Scaffold(
       backgroundColor: Colors.white,
       // AppBar
       appBar: AppBar(
+        title: Text(ios?"iOS user" : "Android user"),
+        centerTitle: false,
         // leading
         //leading: Icon(Icons.person_add_outlined, size: 30,),
         /*actions: [
@@ -115,14 +122,15 @@ class _ProfileState extends State<Profile> {
             ),
 
             SizedBox(width: 10,),
-            Badge(
-              //alignment: AlignmentGeometry.bottomEnd,
-              backgroundColor: Colors.green,
-              smallSize: 30,
-              child: CircleAvatar(
-                radius: 50,
-                backgroundImage: NetworkImage("https://media.istockphoto.com/id/1455764286/fr/photo/c%C3%A9l%C3%A9bration-femme-noire-et-personne-excit%C3%A9e-montrant-le-bonheur-et-le-sentiment-de-gagnant.jpg?s=612x612&w=0&k=20&c=z9Nt-wJie1eFN-fiwkMn9jEl33CZw3p3c2SsSrhuq3k="),),
-            ),
+            /*
+            CircularProgressIndicator(),
+            Visibility(
+                visible: true,
+                child: CupertinoActivityIndicator(radius: 40,)),
+            */
+           ios
+               ?CupertinoActivityIndicator()
+               :CircularProgressIndicator()
             ],
         ),
       ),
@@ -145,6 +153,8 @@ class _ProfileState extends State<Profile> {
           ],
         ),
       ),
+
+
 
 
 
