@@ -1,5 +1,4 @@
 import 'package:flutter/material.dart';
-import 'package:tiktok/features/main_page/presentations/pages/home/presentations/home.dart';
 import 'package:tiktok/features/main_page/presentations/pages/main_page.dart';
 
 
@@ -21,7 +20,7 @@ class MyApp extends StatelessWidget {
       title: 'Tiktok clone',
       theme: ThemeData(
         colorScheme: .fromSeed(seedColor: Colors.white),
-      ),
+        ),
       home: MainPage()
     );
   }

@@ -81,9 +81,23 @@ class _ProfileState extends State<Profile> {
             Row(
               mainAxisAlignment: MainAxisAlignment.spaceAround,
               children: [
-                Text("Following"),
-                Text("Followers"),
-                Text("Likes")
+                TextButton(
+                  onPressed: (){
+                    print("Users you follow");
+                  },
+                    child : Text("Following"),
+                ),TextButton(
+                  onPressed: (){
+                    print("Your followers");
+                  },
+                    child : Text("Followers"),
+                ),TextButton(
+                  onPressed: (){
+                    print("Your videos likes count");
+                  },
+                    child : Text("Likes"),
+                ),
+
               ],
             ),
             SizedBox(height: 50,),
@@ -130,7 +144,10 @@ class _ProfileState extends State<Profile> {
             */
            ios
                ?CupertinoActivityIndicator()
-               :CircularProgressIndicator()
+               :CircularProgressIndicator(),
+
+            Text("Chargement des vidéos en cours ...")
+
             ],
         ),
       ),
