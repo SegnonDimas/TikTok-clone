@@ -1,5 +1,4 @@
 import 'package:flutter/material.dart';
-import 'package:lottie/lottie.dart';
 
 class Profile extends StatefulWidget {
   const Profile({super.key});
@@ -33,7 +32,8 @@ class _ProfileState extends State<Profile> {
           crossAxisAlignment: CrossAxisAlignment.center,
           children: [
             // photo de profil
-            Container(height: 150, width: 150,
+            SizedBox(
+              height: 150, width: 150,
                 child: Stack(
                   children: [
                     Image.network("https://media.istockphoto.com/id/1446465647/fr/vectoriel/avatar-portrait-dun-jeune-gar%C3%A7on-caucasien-homme-en-rond-cadre-illustration-vectorielle.jpg?s=612x612&w=0&k=20&c=ABO-hml56eP4dkThhoVExlI-ymBRidU-AtvPdOZG-mU="),
