@@ -24,7 +24,13 @@ class _HomeState extends State<Home> {
 
       // APPBAR
       appBar: AppBar(
-       leading: Icon(Icons.live_tv, size: 40,),
+       leading: IconButton(
+           onPressed: (){
+             print('Live lancé');
+           }, icon: Icon(Icons.live_tv_outlined, size: 40,),
+       selectedIcon: Icon(Icons.live_help),
+         isSelected: false,
+       ),
         title: Row(
           mainAxisAlignment: MainAxisAlignment.center,
           children: [
@@ -37,7 +43,9 @@ class _HomeState extends State<Home> {
         ),
         centerTitle: true,
         actions: [
-          Icon(Icons.search, size: 40,)
+          IconButton(onPressed: (){
+            print("🔍Recherche");
+          }, icon: Icon(Icons.search, size: 40,))
         ],
       ),
 
