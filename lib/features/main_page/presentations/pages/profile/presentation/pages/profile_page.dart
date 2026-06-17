@@ -32,9 +32,29 @@ class _ProfileState extends State<Profile> {
           //mainAxisAlignment: MainAxisAlignment.center,
           crossAxisAlignment: CrossAxisAlignment.center,
           children: [
+            // photo de profil
             Container(height: 150, width: 150,
-                child: Image.network("https://media.istockphoto.com/id/1446465647/fr/vectoriel/avatar-portrait-dun-jeune-gar%C3%A7on-caucasien-homme-en-rond-cadre-illustration-vectorielle.jpg?s=612x612&w=0&k=20&c=ABO-hml56eP4dkThhoVExlI-ymBRidU-AtvPdOZG-mU=")
+                child: Stack(
+                  children: [
+                    Image.network("https://media.istockphoto.com/id/1446465647/fr/vectoriel/avatar-portrait-dun-jeune-gar%C3%A7on-caucasien-homme-en-rond-cadre-illustration-vectorielle.jpg?s=612x612&w=0&k=20&c=ABO-hml56eP4dkThhoVExlI-ymBRidU-AtvPdOZG-mU="),
+                    Positioned(
+                      bottom: 25,
+                      right: 20,
+                      child: Container(
+                        height: 25,
+                        width: 25,
+                        decoration: BoxDecoration(
+                          color: Colors.green,
+                          shape: BoxShape.circle,
+                          border: Border.all(color: Colors.white, width: 3)
+                        ),
+                      ),
+                    )
+                  ],
+                )
                 ,),
+
+            // quelques actions
             Row
               (
               mainAxisAlignment: MainAxisAlignment.center,
@@ -45,9 +65,12 @@ class _ProfileState extends State<Profile> {
               ],
             ),
             SizedBox(height: 10,),
+
+            // nom d'utilsateur
             Text("@dimassegnon"),
             SizedBox(height: 20,),
 
+            // les catégories-infos
             Row(
               mainAxisAlignment: MainAxisAlignment.spaceAround,
               children: [
@@ -56,9 +79,9 @@ class _ProfileState extends State<Profile> {
                 Text("Likes")
               ],
             ),
-
             SizedBox(height: 50,),
 
+            //liste des posts
             Row(
               children: [
                 Stack(
@@ -87,8 +110,19 @@ class _ProfileState extends State<Profile> {
                       ))
                   ],
                 ),
-              ],
-            )
+
+               ],
+            ),
+
+            SizedBox(width: 10,),
+            Badge(
+              //alignment: AlignmentGeometry.bottomEnd,
+              backgroundColor: Colors.green,
+              smallSize: 30,
+              child: CircleAvatar(
+                radius: 50,
+                backgroundImage: NetworkImage("https://media.istockphoto.com/id/1455764286/fr/photo/c%C3%A9l%C3%A9bration-femme-noire-et-personne-excit%C3%A9e-montrant-le-bonheur-et-le-sentiment-de-gagnant.jpg?s=612x612&w=0&k=20&c=z9Nt-wJie1eFN-fiwkMn9jEl33CZw3p3c2SsSrhuq3k="),),
+            ),
             ],
         ),
       ),
