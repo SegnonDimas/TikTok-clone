@@ -15,6 +15,7 @@ class Home extends StatefulWidget {
 // classe _HomeState : état de Home, qui contient la logique de l'interface utilisateur
 class _HomeState extends State<Home> {
 
+  bool checkBoxValue = false;
 
   @override
   Widget build(BuildContext context) {
@@ -52,6 +53,7 @@ class _HomeState extends State<Home> {
       //BODY
       body: Center(
         child:Column(
+          //crossAxisAlignment: CrossAxisAlignment.start,
           children: [
             Image.asset("assets/images/tik.png",
               fit: BoxFit.contain, // l'image prend soit toute la largeur, soit toute la hauteur
@@ -132,6 +134,20 @@ class _HomeState extends State<Home> {
               ),
 
             ),
+
+            Row(
+              children: [
+                Checkbox(
+                    value: checkBoxValue,
+                    onChanged: (bool){
+                      setState(() {});
+                      checkBoxValue = !checkBoxValue;
+                    },
+                activeColor: Colors.red,
+                  checkColor: Colors.black,
+                ),
+              ],
+            )
 
           ],
         )
