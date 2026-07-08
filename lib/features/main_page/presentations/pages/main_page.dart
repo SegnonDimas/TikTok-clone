@@ -13,6 +13,7 @@ class MainPage extends StatefulWidget {
 }
 
 class _MainPageState extends State<MainPage> {
+
   // List des pages à afficher dans le body
   List<Widget> pages = [
     Home(),
@@ -22,7 +23,7 @@ class _MainPageState extends State<MainPage> {
     Profile(),
   ];
 
-  // index de la page currante
+  // index de la page courrante
   int currentIndex = 0;
 
   @override
