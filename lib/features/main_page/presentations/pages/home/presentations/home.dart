@@ -78,7 +78,61 @@ class _HomeState extends State<Home> {
                       Text("Full screen"),
                     ],
                   ),
-                ))
+                )),
+
+
+            TextField(
+              controller: TextEditingController(),
+              keyboardType: TextInputType.text,
+              textCapitalization: TextCapitalization.sentences,
+              maxLength: 100,
+              style: TextStyle(
+                  color: Colors.red
+              ),
+
+
+              decoration: InputDecoration(
+                  prefixIcon: Icon(Icons.email),
+                  fillColor: Colors.grey[300],
+                  filled: true,
+
+                  border: OutlineInputBorder(
+                    borderRadius: BorderRadius.circular(20),
+
+
+                  ),
+                  label: Text("Email"),
+                  hintText: "user@gmail.com"
+              ),
+
+            ),
+            TextField(
+              controller: TextEditingController(),
+              keyboardType: TextInputType.text,
+              textCapitalization: TextCapitalization.sentences,
+              maxLength: 100,
+              style: TextStyle(
+                  color: Colors.red
+              ),
+
+
+              decoration: InputDecoration(
+                prefixIcon: Icon(Icons.lock),
+                  suffixIcon: Icon(Icons.visibility),
+                  fillColor: Colors.grey[300],
+                  filled: true,
+
+                  border: OutlineInputBorder(
+                    borderRadius: BorderRadius.circular(20),
+
+
+                  ),
+                  label: Text("PassWord"),
+                  hintText: "••••••••"
+              ),
+
+            ),
+
           ],
         )
       ),
@@ -113,8 +167,19 @@ class _HomeState extends State<Home> {
                 height: 400,
                 width: double.infinity,
                 child: Column(
+                  mainAxisAlignment: MainAxisAlignment.spaceBetween,
                   children: [
-                    Lottie.asset("assets/lotties/Welcome.json")
+                    Lottie.asset("assets/lotties/Welcome.json", width: 150),
+                    TextField(
+                      controller: TextEditingController(),
+                      keyboardType: TextInputType.text,
+                      textCapitalization: TextCapitalization.sentences,
+                      style: TextStyle(
+                        color: Colors.blue
+                      ),
+
+                    ),
+                    SizedBox(height: 10,)
                   ],
                 ),
               );
