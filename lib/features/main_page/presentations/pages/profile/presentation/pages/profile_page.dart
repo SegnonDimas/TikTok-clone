@@ -1,3 +1,5 @@
+// ignore_for_file: sort_child_properties_last
+
 import 'dart:io';
 import 'dart:ui';
 
@@ -141,6 +143,143 @@ class _ProfileState extends State<Profile> {
 
   ];
 
+  List<Widget> preferencesTopics = [
+    Container(
+        child: Padding(
+          padding: const EdgeInsets.all(8.0),
+          child: Text("Flutter"),
+        ),
+    decoration: BoxDecoration(
+      color: Colors.grey[300],
+      borderRadius: BorderRadius.circular(20)),
+    ),
+    Container(
+        child: Padding(
+          padding: const EdgeInsets.all(8.0),
+          child: Text("Dart"),
+
+        ),
+      decoration: BoxDecoration(
+          color: Colors.grey[300],
+          borderRadius: BorderRadius.circular(20)),
+    ),
+    Container(
+      child: Padding(
+        padding: const EdgeInsets.all(8.0),
+        child: Text("React Native"),
+      ),
+      decoration: BoxDecoration(
+          color: Colors.grey[300],
+          borderRadius: BorderRadius.circular(20)),
+    ),
+    Container(
+      child: Padding(
+        padding: const EdgeInsets.all(8.0),
+        child: Text("Sport"),
+
+      ),
+      decoration: BoxDecoration(
+          color: Colors.grey[300],
+          borderRadius: BorderRadius.circular(20)),
+    ),
+    Container(
+      child: Padding(
+        padding: const EdgeInsets.all(8.0),
+        child: Text("Football"),
+      ),
+      decoration: BoxDecoration(
+          color: Colors.grey[300],
+          borderRadius: BorderRadius.circular(20)),
+    ),
+    Container(
+      child: Padding(
+        padding: const EdgeInsets.all(8.0),
+        child: Text("Handball"),
+
+      ),
+      decoration: BoxDecoration(
+          color: Colors.grey[300],
+          borderRadius: BorderRadius.circular(20)),
+    ),
+    Container(
+      child: Padding(
+        padding: const EdgeInsets.all(8.0),
+        child: Text("Shopping"),
+      ),
+      decoration: BoxDecoration(
+          color: Colors.grey[300],
+          borderRadius: BorderRadius.circular(20)),
+    ),
+    Container(
+      child: Padding(
+        padding: const EdgeInsets.all(8.0),
+        child: Text("Music"),
+
+      ),
+      decoration: BoxDecoration(
+          color: Colors.grey[300],
+          borderRadius: BorderRadius.circular(20)),
+    ),
+    Container(
+      child: Padding(
+        padding: const EdgeInsets.all(8.0),
+        child: Text("Friendly"),
+      ),
+      decoration: BoxDecoration(
+          color: Colors.grey[300],
+          borderRadius: BorderRadius.circular(20)),
+    ),
+    Container(
+      child: Padding(
+        padding: const EdgeInsets.all(8.0),
+        child: Text("Drink"),
+
+      ),
+      decoration: BoxDecoration(
+          color: Colors.grey[300],
+          borderRadius: BorderRadius.circular(20)),
+    ),
+    Container(
+      child: Padding(
+        padding: const EdgeInsets.all(8.0),
+        child: Text("Beat"),
+      ),
+      decoration: BoxDecoration(
+          color: Colors.grey[300],
+          borderRadius: BorderRadius.circular(20)),
+    ),
+    Container(
+      child: Padding(
+        padding: const EdgeInsets.all(8.0),
+        child: Text("Beach"),
+
+      ),
+      decoration: BoxDecoration(
+          color: Colors.grey[300],
+          borderRadius: BorderRadius.circular(20)),
+    ),
+    Container(
+      child: Padding(
+        padding: const EdgeInsets.all(8.0),
+        child: Text("Wold"),
+      ),
+      decoration: BoxDecoration(
+          color: Colors.grey[300],
+          borderRadius: BorderRadius.circular(20)),
+    ),
+    Container(
+      child: Padding(
+        padding: const EdgeInsets.all(8.0),
+        child: Text("Dance"),
+
+      ),
+      decoration: BoxDecoration(
+          color: Colors.grey[300],
+          borderRadius: BorderRadius.circular(20)),
+    ),
+
+  ];
+
   @override
   Widget build(BuildContext context) {
     bool ios = Platform.isIOS;
@@ -229,6 +368,33 @@ class _ProfileState extends State<Profile> {
 
               ],
             ),
+
+            SizedBox(height: 20,),
+
+            // preferences topics
+            Row(
+              mainAxisAlignment: MainAxisAlignment.spaceBetween,
+              children: [
+                Text("Preferences topics"),
+                TextButton(onPressed: (){},
+                    child: Container(
+                      padding: EdgeInsets.all(5),
+                        decoration: BoxDecoration(
+                            color: Colors.green[100],
+                            border: Border.all(color: Colors.green),
+                            borderRadius: BorderRadius.circular(10)),
+
+                        child: Text("  Edit  ", style: TextStyle(color: Colors.green, fontWeight: FontWeight.bold),)))
+              ],
+            ),
+            SizedBox(height: 10,),
+            Wrap(
+              children: preferencesTopics,
+              spacing: 5,
+              runSpacing: 5,
+            ),
+
+
             SizedBox(height: 50,),
 
             //liste des posts
@@ -236,7 +402,7 @@ class _ProfileState extends State<Profile> {
               child: GridView.builder(
                   gridDelegate: SliverGridDelegateWithFixedCrossAxisCount(
                     crossAxisCount: 3,
-                    crossAxisSpacing: 10,
+                    crossAxisSpacing: 2,
                     mainAxisSpacing: 2,
                     childAspectRatio: 0.85
                   ),
