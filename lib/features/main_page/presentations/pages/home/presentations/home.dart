@@ -16,6 +16,10 @@ class Home extends StatefulWidget {
 class _HomeState extends State<Home> {
 
   bool checkBoxValue = false;
+  bool passWordVisible = false;
+  TextEditingController pwdController = TextEditingController();
+  TextEditingController emailController = TextEditingController();
+  Key emailKey = Key('');
 
   @override
   Widget build(BuildContext context) {
@@ -52,104 +56,176 @@ class _HomeState extends State<Home> {
 
       //BODY
       body: Center(
-        child:Column(
-          //crossAxisAlignment: CrossAxisAlignment.start,
-          children: [
-            Image.asset("assets/images/tik.png",
-              fit: BoxFit.contain, // l'image prend soit toute la largeur, soit toute la hauteur
-              //fit: BoxFit.fitHeight, //l'image prend toute la hauteur définie
-              //fit: BoxFit.fitWidth, //l'image prend toute la largeur définie
-              //fit: BoxFit.fill, // l'image prend toute la largeur et la hauteur définies en affichant toute l'image
-              //fit: BoxFit.cover, // l'image prend toute la largeur et la hauteur définies et peut ne pas afficher toute l'image
-            ),
-
-            ElevatedButton(
-                onPressed: (){
-                  print("📱Mode plein écran activé");
-                },
-                style: ElevatedButton.styleFrom(
-                  backgroundColor: Colors.black,
-                  foregroundColor: Colors.white,
-
-                ),
-                child: SizedBox(
-                  width: 100,
-                  child: Row(
-                    children: [
-                      Icon(Icons.smartphone),
-                      Text("Full screen"),
-                    ],
+        child:SingleChildScrollView(
+          child: Column(
+            //crossAxisAlignment: CrossAxisAlignment.start,
+            children: [
+              Image.asset("assets/images/tik.png",
+                fit: BoxFit.contain, // l'image prend soit toute la largeur, soit toute la hauteur
+                //fit: BoxFit.fitHeight, //l'image prend toute la hauteur définie
+                //fit: BoxFit.fitWidth, //l'image prend toute la largeur définie
+                //fit: BoxFit.fill, // l'image prend toute la largeur et la hauteur définies en affichant toute l'image
+                //fit: BoxFit.cover, // l'image prend toute la largeur et la hauteur définies et peut ne pas afficher toute l'image
+              ),
+          
+              ElevatedButton(
+                  onPressed: (){
+                    print("📱Mode plein écran activé");
+                  },
+                  style: ElevatedButton.styleFrom(
+                    backgroundColor: Colors.black,
+                    foregroundColor: Colors.white,
+          
                   ),
-                )),
-
-
-            TextField(
-              controller: TextEditingController(),
-              keyboardType: TextInputType.text,
-              textCapitalization: TextCapitalization.sentences,
-              maxLength: 100,
-              style: TextStyle(
-                  color: Colors.red
-              ),
-
-
-              decoration: InputDecoration(
-                  prefixIcon: Icon(Icons.email),
-                  fillColor: Colors.grey[300],
-                  filled: true,
-
-                  border: OutlineInputBorder(
-                    borderRadius: BorderRadius.circular(20),
-
-
-                  ),
-                  label: Text("Email"),
-                  hintText: "user@gmail.com"
-              ),
-
-            ),
-            TextField(
-              controller: TextEditingController(),
-              keyboardType: TextInputType.text,
-              textCapitalization: TextCapitalization.sentences,
-              maxLength: 100,
-              style: TextStyle(
-                  color: Colors.red
-              ),
-
-
-              decoration: InputDecoration(
-                prefixIcon: Icon(Icons.lock),
-                  suffixIcon: Icon(Icons.visibility),
-                  fillColor: Colors.grey[300],
-                  filled: true,
-
-                  border: OutlineInputBorder(
-                    borderRadius: BorderRadius.circular(20),
-
-
-                  ),
-                  label: Text("PassWord"),
-                  hintText: "••••••••"
-              ),
-
-            ),
-
-            Row(
-              children: [
-                Checkbox(
-                    value: checkBoxValue,
-                    onChanged: (bool){
-                      setState(() {});
-                      checkBoxValue = !checkBoxValue;
+                  child: SizedBox(
+                    width: 100,
+                    child: Row(
+                      children: [
+                        Icon(Icons.smartphone),
+                        Text("Full screen"),
+                      ],
+                    ),
+                  )),
+          
+          
+              Form(
+                child: Column(
+                children: [
+                  // email
+                  TextFormField(
+                    key: emailKey,
+                    controller: emailController,
+                    keyboardType: TextInputType.text,
+                    textCapitalization: TextCapitalization.sentences,
+                    maxLength: 100,
+                    style: TextStyle(
+                        color: Colors.red
+                    ),
+          
+                    validator: (email){
+                      if(emailController.text.isEmpty){
+                        return "Veuillez entrer votre email svp";
+                      } else if(emailController.text.contains('@')==false){
+                        return "Veuillez entrer un email valide";
+                      } else {
+                        return null;
+                      }
+          
+          
+          
                     },
-                activeColor: Colors.red,
-                  checkColor: Colors.black,
-                ),
-              ],
-            )
+          
+                    onEditingComplete: (){
+                      if(emailKey.currentState?.validate()){
+                        print("✅Email valide");
+                      } else {
+                        print("❌Email invalide");
+                      }
+                    },
+          
+          
+                    decoration: InputDecoration(
+                        prefixIcon: Icon(Icons.email),
+                        fillColor: Colors.grey[300],
+                        filled: true,
+          
+                        border: OutlineInputBorder(
+                          borderRadius: BorderRadius.circular(20),
+          
+          
+                        ),
+                        label: Text("Email"),
+                        hintText: "user@gmail.com"
+                    ),
+          
+                    textInputAction: TextInputAction.done,
+          
+                  ),
+          
+                  // password
+                  TextFormField(
+                    controller: pwdController,
+                    keyboardType: TextInputType.text,
+                    textCapitalization: TextCapitalization.sentences,
+                    obscureText: passWordVisible,
+                    maxLength: 100,
+                    style: TextStyle(
+                        color: Colors.red
+                    ),
+          
+          
+                    decoration: InputDecoration(
+                        prefixIcon: Icon(Icons.lock),
+                        suffixIcon: IconButton(
+                          icon: passWordVisible==true? Icon(Icons.visibility) : Icon(Icons.visibility_off),
+                          onPressed: (){
+                            setState(() {});
+                            passWordVisible = !passWordVisible;
+                          },
+                        ),
+                        fillColor: Colors.grey[300],
+                        filled: true,
+          
+                        border: OutlineInputBorder(
+                          borderRadius: BorderRadius.circular(20),
+          
+          
+                        ),
+                        label: Text("PassWord"),
+                        hintText: "••••••••"
+                    ),
+          
+                  ),
+                ],
+          
+              ),
+              ),
 
-          ],
+
+              SingleChildScrollView(
+                scrollDirection: Axis.horizontal,
+                child: Row(
+                  children: [
+                    Checkbox(
+                      value: checkBoxValue,
+                      onChanged: (bool){
+                        setState(() {});
+                        checkBoxValue = !checkBoxValue;
+                      },
+                      activeColor: Colors.red,
+                      checkColor: Colors.black,
+                    ),
+                    Container(
+                        height: 100,
+                        width : 200,
+                        color : Colors.red
+                    ),
+                
+                    Container(
+                        height: 100,
+                        width : 200,
+                        color : Colors.green
+                    )
+                  ],
+                ),
+              ),
+          
+              Image.asset("assets/images/tik.png",
+                fit: BoxFit.contain, // l'image prend soit toute la largeur, soit toute la hauteur
+                //fit: BoxFit.fitHeight, //l'image prend toute la hauteur définie
+                //fit: BoxFit.fitWidth, //l'image prend toute la largeur définie
+                //fit: BoxFit.fill, // l'image prend toute la largeur et la hauteur définies en affichant toute l'image
+                //fit: BoxFit.cover, // l'image prend toute la largeur et la hauteur définies et peut ne pas afficher toute l'image
+              ),
+          
+              Container(
+                height: 100,
+                width : 200,
+                color : Colors.red
+              )
+          
+            ],
+          ),
         )
       ),
 
@@ -214,4 +290,10 @@ class _HomeState extends State<Home> {
 
     );
   }
+
+  
+}
+
+extension on Key {
+  get currentState => null;
 }

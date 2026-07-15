@@ -12,9 +12,11 @@ class _CreatePostState extends State<CreatePost> {
   Widget build(BuildContext context) {
     return Scaffold(
       body: Center(
-        child: Image.network(
-          "https://img.magnific.com/vecteurs-libre/banniere-tiktok-eclaboussures-aquarelle_69286-194.jpg?semt=ais_hybrid&w=740&q=80",
-      ),),
+        child: GestureDetector(
+          child: Image.network(
+            "https://img.magnific.com/vecteurs-libre/banniere-tiktok-eclaboussures-aquarelle_69286-194.jpg?semt=ais_hybrid&w=740&q=80",
+                ),
+        ),),
     );
   }
 }
