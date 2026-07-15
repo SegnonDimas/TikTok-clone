@@ -12,6 +12,140 @@ class Profile extends StatefulWidget {
 }
 
 class _ProfileState extends State<Profile> {
+  List<Widget> posts =  [
+    Stack(
+      children: [
+        Image.network(
+            height: 170,
+            width: 120,
+            fit: BoxFit.cover,
+            "https://assets.goal.com/images/v3/blt337ee8504da6e5a0/cm%20grafica%20cristiano%20ronaldo%20messi%202026%2016%209.jpg?auto=webp&format=pjpg&width=3840&quality=60"),
+        Positioned(
+          top: 5,
+          left: 5,
+          child: Container(
+              color: Colors.pink,
+              child: Text("Pinned", style: TextStyle(color: Colors.white),)),
+        ),
+
+        Positioned(
+            bottom: 5,
+            left: 5,
+            child: Row(
+              children: [
+                Icon(Icons.play_arrow_outlined, color: Colors.white,),
+                Text("2.1M", style: TextStyle(color: Colors.white, fontWeight: FontWeight.bold),),
+              ],
+            ))
+      ],
+    ),
+    Stack(
+      children: [
+        Image.network(
+            height: 170,
+            width: 120,
+            fit: BoxFit.cover,
+            "https://assets.goal.com/images/v3/blt337ee8504da6e5a0/cm%20grafica%20cristiano%20ronaldo%20messi%202026%2016%209.jpg?auto=webp&format=pjpg&width=3840&quality=60"),
+        Positioned(
+          top: 5,
+          left: 5,
+          child: Container(
+              color: Colors.pink,
+              child: Text("Pinned", style: TextStyle(color: Colors.white),)),
+        ),
+
+        Positioned(
+            bottom: 5,
+            left: 5,
+            child: Row(
+              children: [
+                Icon(Icons.play_arrow_outlined, color: Colors.white,),
+                Text("2.1M", style: TextStyle(color: Colors.white, fontWeight: FontWeight.bold),),
+              ],
+            ))
+      ],
+    ),
+    Stack(
+      children: [
+        Image.network(
+            height: 170,
+            width: 120,
+            fit: BoxFit.cover,
+            "https://assets.goal.com/images/v3/blt337ee8504da6e5a0/cm%20grafica%20cristiano%20ronaldo%20messi%202026%2016%209.jpg?auto=webp&format=pjpg&width=3840&quality=60"),
+        Positioned(
+          top: 5,
+          left: 5,
+          child: Container(
+              color: Colors.pink,
+              child: Text("Pinned", style: TextStyle(color: Colors.white),)),
+        ),
+
+        Positioned(
+            bottom: 5,
+            left: 5,
+            child: Row(
+              children: [
+                Icon(Icons.play_arrow_outlined, color: Colors.white,),
+                Text("2.1M", style: TextStyle(color: Colors.white, fontWeight: FontWeight.bold),),
+              ],
+            ))
+      ],
+    ),
+    Stack(
+      children: [
+        Image.network(
+            height: 170,
+            width: 120,
+            fit: BoxFit.cover,
+            "https://assets.goal.com/images/v3/blt337ee8504da6e5a0/cm%20grafica%20cristiano%20ronaldo%20messi%202026%2016%209.jpg?auto=webp&format=pjpg&width=3840&quality=60"),
+        Positioned(
+          top: 5,
+          left: 5,
+          child: Container(
+              color: Colors.pink,
+              child: Text("Pinned", style: TextStyle(color: Colors.white),)),
+        ),
+
+        Positioned(
+            bottom: 5,
+            left: 5,
+            child: Row(
+              children: [
+                Icon(Icons.play_arrow_outlined, color: Colors.white,),
+                Text("2.1M", style: TextStyle(color: Colors.white, fontWeight: FontWeight.bold),),
+              ],
+            ))
+      ],
+    ),
+    Stack(
+      children: [
+        Image.network(
+            height: 170,
+            width: 120,
+            fit: BoxFit.cover,
+            "https://assets.goal.com/images/v3/blt337ee8504da6e5a0/cm%20grafica%20cristiano%20ronaldo%20messi%202026%2016%209.jpg?auto=webp&format=pjpg&width=3840&quality=60"),
+        Positioned(
+          top: 5,
+          left: 5,
+          child: Container(
+              color: Colors.pink,
+              child: Text("Pinned", style: TextStyle(color: Colors.white),)),
+        ),
+
+        Positioned(
+            bottom: 5,
+            left: 5,
+            child: Row(
+              children: [
+                Icon(Icons.play_arrow_outlined, color: Colors.white,),
+                Text("2.1M", style: TextStyle(color: Colors.white, fontWeight: FontWeight.bold),),
+              ],
+            ))
+      ],
+    ),
+
+  ];
+
   @override
   Widget build(BuildContext context) {
     bool ios = Platform.isIOS;
@@ -103,36 +237,11 @@ class _ProfileState extends State<Profile> {
             SizedBox(height: 50,),
 
             //liste des posts
-            Row(
-              children: [
-                Stack(
-                  children: [
-                    Image.network(
-                        height: 170,
-                        width: 120,
-                        fit: BoxFit.cover,
-                        "https://assets.goal.com/images/v3/blt337ee8504da6e5a0/cm%20grafica%20cristiano%20ronaldo%20messi%202026%2016%209.jpg?auto=webp&format=pjpg&width=3840&quality=60"),
-                    Positioned(
-                      top: 5,
-                      left: 5,
-                      child: Container(
-                          color: Colors.pink,
-                          child: Text("Pinned", style: TextStyle(color: Colors.white),)),
-                    ),
-
-                  Positioned(
-                      bottom: 5,
-                      left: 5,
-                      child: Row(
-                        children: [
-                          Icon(Icons.play_arrow_outlined, color: Colors.white,),
-                          Text("2.1M", style: TextStyle(color: Colors.white, fontWeight: FontWeight.bold),),
-                        ],
-                      ))
-                  ],
-                ),
-
-               ],
+            Expanded(
+              child: GridView(
+                  gridDelegate: SliverGridDelegateWithFixedCrossAxisCount(crossAxisCount: 3),
+              children: posts,
+              ),
             ),
 
             SizedBox(width: 10,),
