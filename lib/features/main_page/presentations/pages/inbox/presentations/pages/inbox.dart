@@ -15,76 +15,76 @@ class _InboxState extends State<Inbox> {
       width: 400,
       color: Colors.blue,
     ),
-    SizedBox(height: 10,),
+
     Container(
       height: 70,
       width: 400,
       color: Colors.blue,
     ),
-    SizedBox(height: 10,),
+
     Container(
       height: 70,
       width: 400,
       color: Colors.blue,
     ),
-    SizedBox(height: 10,),Container(
-      height: 70,
-      width: 400,
-      color: Colors.blue,
-    ),
-    SizedBox(height: 10,),Container(
-      height: 70,
-      width: 400,
-      color: Colors.blue,
-    ),
-    SizedBox(height: 10,),
     Container(
       height: 70,
       width: 400,
       color: Colors.blue,
     ),
-    SizedBox(height: 10,),
     Container(
       height: 70,
       width: 400,
       color: Colors.blue,
     ),
-    SizedBox(height: 10,),
+
     Container(
       height: 70,
       width: 400,
       color: Colors.blue,
     ),
-    SizedBox(height: 10,),
+
     Container(
       height: 70,
       width: 400,
       color: Colors.blue,
     ),
-    SizedBox(height: 10,),
+
     Container(
       height: 70,
       width: 400,
       color: Colors.blue,
     ),
-    SizedBox(height: 10,),Container(
-      height: 70,
-      width: 400,
-      color: Colors.blue,
-    ),
-    SizedBox(height: 10,),
+
     Container(
       height: 70,
       width: 400,
       color: Colors.blue,
     ),
-    SizedBox(height: 10,),
+
     Container(
       height: 70,
       width: 400,
       color: Colors.blue,
     ),
-    SizedBox(height: 10,),
+    Container(
+      height: 70,
+      width: 400,
+      color: Colors.blue,
+    ),
+
+    Container(
+      height: 70,
+      width: 400,
+      color: Colors.blue,
+    ),
+
+    Container(
+      height: 70,
+      width: 400,
+      color: Colors.blue,
+    ),
+
 
 
 
@@ -145,8 +145,8 @@ class _InboxState extends State<Inbox> {
         backgroundColor: Colors.black,
       ),
       body: Center(
-        child: ListView(
-          physics: ClampingScrollPhysics(),
+        child: Column(
+
           children: [
             // profils
             SizedBox(
@@ -168,8 +168,20 @@ class _InboxState extends State<Inbox> {
 
             // discussions
             Expanded(
-              child: Column(
-                children: discussions,
+              child: ListView.separated(
+                // l'afficheur de chaque élément
+                itemBuilder: (context, index){
+                  return discussions[index];
+                },
+
+                // le séparateur entre les éléments
+                separatorBuilder: (context, index){
+                  return SizedBox(height: 10,);
+                },
+
+                // la taille de la liste des éléments
+                itemCount: discussions.length,
+
               ),
             ),
           ],
