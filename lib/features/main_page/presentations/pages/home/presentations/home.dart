@@ -184,6 +184,7 @@ class _HomeState extends State<Home> {
 
               SingleChildScrollView(
                 scrollDirection: Axis.horizontal,
+                reverse: true,
                 child: Row(
                   children: [
                     Checkbox(
