@@ -17,7 +17,6 @@ class _ProfileState extends State<Profile> {
       children: [
         Image.network(
             height: 170,
-            width: 120,
             fit: BoxFit.cover,
             "https://assets.goal.com/images/v3/blt337ee8504da6e5a0/cm%20grafica%20cristiano%20ronaldo%20messi%202026%2016%209.jpg?auto=webp&format=pjpg&width=3840&quality=60"),
         Positioned(
@@ -43,7 +42,6 @@ class _ProfileState extends State<Profile> {
       children: [
         Image.network(
             height: 170,
-            width: 120,
             fit: BoxFit.cover,
             "https://assets.goal.com/images/v3/blt337ee8504da6e5a0/cm%20grafica%20cristiano%20ronaldo%20messi%202026%2016%209.jpg?auto=webp&format=pjpg&width=3840&quality=60"),
         Positioned(
@@ -69,7 +67,6 @@ class _ProfileState extends State<Profile> {
       children: [
         Image.network(
             height: 170,
-            width: 120,
             fit: BoxFit.cover,
             "https://assets.goal.com/images/v3/blt337ee8504da6e5a0/cm%20grafica%20cristiano%20ronaldo%20messi%202026%2016%209.jpg?auto=webp&format=pjpg&width=3840&quality=60"),
         Positioned(
@@ -95,7 +92,6 @@ class _ProfileState extends State<Profile> {
       children: [
         Image.network(
             height: 170,
-            width: 120,
             fit: BoxFit.cover,
             "https://assets.goal.com/images/v3/blt337ee8504da6e5a0/cm%20grafica%20cristiano%20ronaldo%20messi%202026%2016%209.jpg?auto=webp&format=pjpg&width=3840&quality=60"),
         Positioned(
@@ -121,7 +117,6 @@ class _ProfileState extends State<Profile> {
       children: [
         Image.network(
             height: 170,
-            width: 120,
             fit: BoxFit.cover,
             "https://assets.goal.com/images/v3/blt337ee8504da6e5a0/cm%20grafica%20cristiano%20ronaldo%20messi%202026%2016%209.jpg?auto=webp&format=pjpg&width=3840&quality=60"),
         Positioned(
@@ -238,9 +233,12 @@ class _ProfileState extends State<Profile> {
 
             //liste des posts
             Expanded(
-              child: GridView(
-                  gridDelegate: SliverGridDelegateWithFixedCrossAxisCount(crossAxisCount: 3),
-              children: posts,
+              child: GridView.count(
+                  crossAxisCount: 3,
+                  children: posts,
+                  crossAxisSpacing: 2,
+                  mainAxisSpacing: 2,
+                  childAspectRatio: 0.85,
               ),
             ),
 
