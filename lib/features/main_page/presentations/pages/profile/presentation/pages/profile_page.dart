@@ -233,12 +233,17 @@ class _ProfileState extends State<Profile> {
 
             //liste des posts
             Expanded(
-              child: GridView.count(
-                  crossAxisCount: 3,
-                  children: posts,
-                  crossAxisSpacing: 2,
-                  mainAxisSpacing: 2,
-                  childAspectRatio: 0.85,
+              child: GridView.builder(
+                  gridDelegate: SliverGridDelegateWithFixedCrossAxisCount(
+                    crossAxisCount: 3,
+                    crossAxisSpacing: 10,
+                    mainAxisSpacing: 2,
+                    childAspectRatio: 0.85
+                  ),
+                  itemCount: posts.length,
+                  itemBuilder: (context, index){
+                    return posts[index];
+                  },
               ),
             ),
 
