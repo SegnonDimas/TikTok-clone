@@ -92,49 +92,49 @@ class _InboxState extends State<Inbox> {
   List<Widget> profils = [
     CircleAvatar(
       radius: 50,
-      backgroundColor: Colors.blue,
+      backgroundColor: Colors.red,
     ),
-    SizedBox(width: 10,),
+
     CircleAvatar(
       radius: 50,
       backgroundColor: Colors.blue,
     ),
-    SizedBox(width: 10,),
+
     CircleAvatar(
       radius: 50,
       backgroundColor: Colors.blue,
     ),
-    SizedBox(width: 10,),
+
     CircleAvatar(
       radius: 50,
       backgroundColor: Colors.blue,
     ),
-    SizedBox(width: 10,),
+
     CircleAvatar(
       radius: 50,
       backgroundColor: Colors.blue,
     ),
-    SizedBox(width: 10,),
+
     CircleAvatar(
       radius: 50,
       backgroundColor: Colors.blue,
     ),
-    SizedBox(width: 10,),
+
     CircleAvatar(
       radius: 50,
       backgroundColor: Colors.blue,
     ),
-    SizedBox(width: 10,),
+
     CircleAvatar(
       radius: 50,
       backgroundColor: Colors.blue,
     ),
-    SizedBox(width: 10,),
+
     CircleAvatar(
       radius: 50,
       backgroundColor: Colors.blue,
     ),
-    SizedBox(width: 10,),
+
   ];
 
   @override
@@ -146,15 +146,27 @@ class _InboxState extends State<Inbox> {
       ),
       body: Center(
         child: ListView(
+          physics: ClampingScrollPhysics(),
           children: [
+            // profils
             SizedBox(
               height: 120,
-              child: ListView(
+              child: ListView.builder(
+                reverse: true,
+                itemCount: profils.length,
                 scrollDirection: Axis.horizontal,
-                children: profils,
+                itemBuilder: (context, index){
+                  return Padding(
+                      padding: EdgeInsets.symmetric(horizontal: 10),
+                      child: profils[index]);
+                },
               ),
             ),
+
+            // espace
             SizedBox(height: 20,),
+
+            // discussions
             Expanded(
               child: Column(
                 children: discussions,
