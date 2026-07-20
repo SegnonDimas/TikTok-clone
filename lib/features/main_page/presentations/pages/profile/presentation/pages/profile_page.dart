@@ -5,6 +5,9 @@ import 'dart:ui';
 
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
+import 'package:tiktok/features/main_page/presentations/pages/friends/presentations/pages/friends.dart';
+
+import 'balance/presentation/pages/balance_page.dart';
 
 class Profile extends StatefulWidget {
   const Profile({super.key});
@@ -369,7 +372,7 @@ class _ProfileState extends State<Profile> {
               ],
             ),
 
-            SizedBox(height: 20,),
+            SizedBox(height: 10,),
 
             // preferences topics
             Row(
@@ -437,14 +440,55 @@ class _ProfileState extends State<Profile> {
             SizedBox(height: 100,),
 
             Text("Assets"),
-            SizedBox(height: 100,),
+            ListTile(
+              leading: Icon(Icons.wallet),
+              trailing: Icon(Icons.arrow_forward_ios, size : 14),
+              title : Text("Balance"),
+              onTap: (){
+                // Naviguer vers la lage de balances
+                Navigator.push(
+                  context,
+                  MaterialPageRoute(
+                      builder: (context) => BalancePage()
+                  )
+                  );
+                },
+            ),
+            SizedBox(height: 10,),
             Divider(),
 
             Text("Personal tools"),
-            SizedBox(height: 100,),
+            ListTile(
+              leading: Icon(Icons.access_time_outlined),
+              trailing: Icon(Icons.arrow_forward_ios, size : 14),
+              title : Text("Activity center"),
+            ),
+            ListTile(
+              leading: Icon(Icons.cloud_download_outlined),
+              trailing: Icon(Icons.arrow_forward_ios, size : 14),
+              title : Text("Offline videos"),
+            ),
+            ListTile(
+              leading: Icon(Icons.qr_code),
+              trailing: Icon(Icons.arrow_forward_ios, size : 14),
+              title : Text("Your QR code"),
+            ),
+            SizedBox(height: 10,),
             Divider(),
-            SizedBox(height: 100,),
-            Text("Creation & business tools")
+            SizedBox(height: 10,),
+
+            Text("Creation & business tools"),
+            ListTile(
+              leading: Icon(Icons.person_add_alt_outlined),
+              trailing: Icon(Icons.arrow_forward_ios, size : 14),
+              title : Text("TikTok Studio"),
+            ),
+             Divider(),
+            ListTile(
+              leading: Icon(Icons.settings),
+              trailing: Icon(Icons.arrow_forward_ios, size : 14),
+              title : Text("Setting and privacy"),
+            ),
           ],
         ),
       ),

@@ -1,5 +1,9 @@
 import 'package:flutter/material.dart';
+import 'package:tiktok/features/main_page/presentations/pages/home/presentations/home.dart';
 import 'package:tiktok/features/main_page/presentations/pages/main_page.dart';
+
+import 'features/authentification/presentation/pages/login_page.dart';
+import 'features/authentification/presentation/pages/signup_page.dart';
 
 
 // fonction principale main()
@@ -21,7 +25,8 @@ class MyApp extends StatelessWidget {
       theme: ThemeData(
         colorScheme: .fromSeed(seedColor: Colors.white),
         ),
-      home: MainPage()
+     home: SignUpPage()
+
     );
   }
 }
