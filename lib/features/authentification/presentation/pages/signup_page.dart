@@ -1,6 +1,5 @@
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
-import 'package:tiktok/features/authentification/presentation/pages/login_page.dart';
 
 class SignUpPage extends StatefulWidget {
   const SignUpPage({super.key});
@@ -23,11 +22,9 @@ class _SignUpPageState extends State<SignUpPage> {
             Text('Sign up Page'),
             TextButton(
                 onPressed: (){
-              Navigator.push(
+              Navigator.pushNamed(
                 context,
-                MaterialPageRoute(
-                    builder: (context) => LoginPage())
-              );
+                '/login');
             }, child: Text('Sign up'))
 
 

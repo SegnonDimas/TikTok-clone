@@ -25,8 +25,14 @@ class MyApp extends StatelessWidget {
       theme: ThemeData(
         colorScheme: .fromSeed(seedColor: Colors.white),
         ),
-     home: SignUpPage()
-
+     // home: MainPage()
+     initialRoute: '/signup',
+     routes: {
+        '/home' : (context) => Home(),
+        '/main' : (context) => MainPage(),
+        '/signup' : (context) => SignUpPage(),
+        '/login' : (context) => LoginPage(),
+     },
     );
   }
 }

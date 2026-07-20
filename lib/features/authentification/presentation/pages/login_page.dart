@@ -1,6 +1,5 @@
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
-import 'package:tiktok/features/main_page/presentations/pages/main_page.dart';
 
 class LoginPage extends StatefulWidget {
   const LoginPage({super.key});
@@ -23,11 +22,9 @@ class _LoginPageState extends State<LoginPage> {
 
             Text('Login Page'),
             TextButton(onPressed: (){
-              Navigator.pushAndRemoveUntil(
+              Navigator.pushNamedAndRemoveUntil(
                 context,
-                MaterialPageRoute(
-                    builder:(context)=>MainPage()
-              ),
+                '/main',
                   (route)=>false
               );
             }, child: Text('Login'))
