@@ -15,12 +15,19 @@ class Home extends StatefulWidget {
 // classe _HomeState : état de Home, qui contient la logique de l'interface utilisateur
 class _HomeState extends State<Home> {
 
-  bool checkBoxValue = false;
+  late bool checkBoxValue;
   bool passWordVisible = false;
   TextEditingController pwdController = TextEditingController();
   TextEditingController emailController = TextEditingController();
   Key emailKey = Key('');
 
+  @override
+  void initState() {
+    // TODO: implement initState
+    checkBoxValue = false;
+    super.initState();
+  }
+  
   @override
   Widget build(BuildContext context) {
 
@@ -137,6 +144,12 @@ class _HomeState extends State<Home> {
 
     );
   }
+  
+  @override
+    void dispose() {
+      // TODO: implement dispose
+      super.dispose();
+    }
 
   
 }
