@@ -21,8 +21,8 @@ class _WhatsappThemeSimulationPageState
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: AppBar(
-        backgroundColor: Color(0xFF03A63D),
-        title: const Text('Whatsapp Theme'),
+        backgroundColor: senderChatColor,
+        title: const Text('Whatsapp Theme with SetState'),
       ),
       body: Column(
         children: [
