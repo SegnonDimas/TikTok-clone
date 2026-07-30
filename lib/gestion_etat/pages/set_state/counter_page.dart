@@ -16,7 +16,7 @@ class _CounterPageState extends State<CounterPage> {
     print("J'ai reconstruit buuild() ✅");
     return Scaffold(
       appBar: AppBar(
-        backgroundColor: Colors.blue,
+        backgroundColor: Color(0xFF03A63D),
         title: const Text('Counter Page'),
         actions: [
         Text("$counter", style: TextStyle(fontSize: 25, fontWeight: FontWeight.bold),),
@@ -24,25 +24,17 @@ class _CounterPageState extends State<CounterPage> {
       ),
 
       body: Center(
-      child: Text("$counter", style: TextStyle(fontSize: 60, fontWeight: FontWeight.bold),),),
+      child: Text("$counter", style: TextStyle(fontSize: 60, fontWeight: FontWeight.bold, color: Colors.green),),),
 
       floatingActionButton: Row(
         mainAxisAlignment: MainAxisAlignment.spaceAround,
         children: [
-          FloatingActionButton(
-            onPressed: (){
-              setState(() {
-                 counter = counter + 1;
-              });
-            },
-          child: const Icon(Icons.add),),
-          FloatingActionButton(
-            onPressed: (){
-              setState(() {});
-              counter = counter - 1;
-
-            },
-            child: const Icon(Icons.minimize),),
+          Text("Rouge", style: TextStyle(color: Colors.red),),
+          Text("Vert", style: TextStyle(color: Color(0xFF03A63D)),),
+          Text("Bleu", style: TextStyle(color: Colors.blue),),
+          Text("Orange", style: TextStyle(color: Colors.orange),),
+          Text("Jaune", style: TextStyle(color: Colors.yellow),),
+          Text("Noir", style: TextStyle(color: Colors.black),),
         ],
       ),
     );
