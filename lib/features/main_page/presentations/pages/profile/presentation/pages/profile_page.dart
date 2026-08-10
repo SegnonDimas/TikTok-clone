@@ -1,11 +1,12 @@
 // ignore_for_file: sort_child_properties_last
 
+import 'dart:convert';
 import 'dart:io';
 import 'dart:ui';
 
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
-import 'package:tiktok/features/main_page/presentations/pages/friends/presentations/pages/friends.dart';
+import 'package:http/http.dart' as http;
 
 import 'balance/presentation/pages/balance_page.dart';
 
@@ -17,8 +18,32 @@ class Profile extends StatefulWidget {
 }
 
 class _ProfileState extends State<Profile> {
-  List<Widget> posts =  [
-    Stack(
+
+  String randomUserPicture = "https://media.istockphoto.com/id/1446465647/fr/vectoriel/avatar-portrait-dun-jeune-gar%C3%A7on-caucasien-homme-en-rond-cadre-illustration-vectorielle.jpg?s=612x612&w=0&k=20&c=ABO-hml56eP4dkThhoVExlI-ymBRidU-AtvPdOZG-mU=";
+  String randomUserName = "Dimas SEGNON";
+  //get all users-friends
+
+  Future<Map> getUsersInfos()async {
+    final url = Uri.parse("https://randomuser.me/api");
+    final response = await http.get(url);
+
+    print(response.statusCode);
+
+    if(response.statusCode==200){
+      final data = jsonDecode(response.body);
+      print(data["results"]);
+      setState(() {
+        randomUserPicture = data["results"][0]["picture"]["medium"];
+        randomUserName = data["results"][0]["name"]['first'] + " " + data["results"][0]["name"]['last'];
+      });
+      return data["results"][0];
+    }
+    return {};
+
+  }
+
+   List<Widget> posts =  [
+   Stack(
       children: [
         Image.network(
             height: 170,
@@ -43,6 +68,7 @@ class _ProfileState extends State<Profile> {
             ))
       ],
     ),
+
     Stack(
       children: [
         Image.network(
@@ -310,11 +336,20 @@ class _ProfileState extends State<Profile> {
           crossAxisAlignment: CrossAxisAlignment.center,
           children: [
             // photo de profil
-            SizedBox(
+          GestureDetector(
+          onTap: ()async{
+            print("🔥🔥🔥");
+            await getUsersInfos();
+            print("✅$randomUserPicture");
+           },
+          child : SizedBox(
               height: 150, width: 150,
                 child: Stack(
                   children: [
-                    Image.network("https://media.istockphoto.com/id/1446465647/fr/vectoriel/avatar-portrait-dun-jeune-gar%C3%A7on-caucasien-homme-en-rond-cadre-illustration-vectorielle.jpg?s=612x612&w=0&k=20&c=ABO-hml56eP4dkThhoVExlI-ymBRidU-AtvPdOZG-mU="),
+                    CircleAvatar(
+                      radius: 75,
+                      backgroundImage: NetworkImage(randomUserPicture),
+                    ),
                     Positioned(
                       bottom: 25,
                       right: 20,
@@ -330,7 +365,7 @@ class _ProfileState extends State<Profile> {
                     )
                   ],
                 )
-                ,),
+                ,)),
 
             // quelques actions
             Row
@@ -345,7 +380,7 @@ class _ProfileState extends State<Profile> {
             SizedBox(height: 10,),
 
             // nom d'utilsateur
-            Text("@dimassegnon"),
+            Text("@ $randomUserName"),
             SizedBox(height: 20,),
 
             // les catégories-infos
