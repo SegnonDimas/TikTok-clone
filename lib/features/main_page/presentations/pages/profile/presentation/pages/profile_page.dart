@@ -19,10 +19,15 @@ class Profile extends StatefulWidget {
 
 class _ProfileState extends State<Profile> {
 
+  Map user = {
+    "name" : "",
+    "picture" : ""
+  };
+
   String randomUserPicture = "https://media.istockphoto.com/id/1446465647/fr/vectoriel/avatar-portrait-dun-jeune-gar%C3%A7on-caucasien-homme-en-rond-cadre-illustration-vectorielle.jpg?s=612x612&w=0&k=20&c=ABO-hml56eP4dkThhoVExlI-ymBRidU-AtvPdOZG-mU=";
   String randomUserName = "Dimas SEGNON";
-  //get all users-friends
 
+  //get random users
   Future<Map> getUsersInfos()async {
     final url = Uri.parse("https://randomuser.me/api");
     final response = await http.get(url);
@@ -338,6 +343,7 @@ class _ProfileState extends State<Profile> {
             // photo de profil
           GestureDetector(
           onTap: ()async{
+            // il faut cliquer sur la photo de profil pour exécuter la requête vers l'API
             print("🔥🔥🔥");
             await getUsersInfos();
             print("✅$randomUserPicture");
