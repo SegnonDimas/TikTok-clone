@@ -1,9 +1,8 @@
 import 'package:flutter/material.dart';
 import 'package:provider/provider.dart';
 import 'package:tiktok/features/main_page/presentations/pages/home/presentations/home.dart';
-import 'package:tiktok/features/main_page/presentations/pages/inbox/presentations/pages/inbox.dart';
 import 'package:tiktok/features/main_page/presentations/pages/main_page.dart';
-import 'package:tiktok/features/main_page/presentations/pages/profile/presentation/pages/profile_page.dart';
+import 'package:tiktok/features/store/presentations/pages/store.dart';
 import 'package:tiktok/gestion_etat/providers/senderChatColorProvider.dart';
 import 'features/authentification/presentation/pages/login_page.dart';
 import 'features/authentification/presentation/pages/signup_page.dart';
@@ -26,7 +25,7 @@ class MyApp extends StatelessWidget {
       child: MaterialApp(
         title: 'Tiktok clone',
         theme: ThemeData(colorScheme: .fromSeed(seedColor: Colors.white)),
-        home: Inbox(),
+        home: StorePage(),
         //initialRoute: '/signup',
         routes: {
           '/home': (context) => Home(),
